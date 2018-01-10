@@ -5,6 +5,7 @@ const config = require('./config/config')
 const routes = require('./routes/')
 
 const app = express()
+
 routes(app)
 
 app
