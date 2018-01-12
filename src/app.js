@@ -6,12 +6,20 @@ const routes = require('./routes/')
 
 const app = express()
 
-routes(app)
 
 app
     .set("views", __dirname + "/views")
     .set("view engine", "hjs")
-    .use(bodyParser.json())
+
     .use(cors())
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+
+// parse application/json
+app.use(bodyParser.json())
+
+routes(app)
 app.listen(config.port)

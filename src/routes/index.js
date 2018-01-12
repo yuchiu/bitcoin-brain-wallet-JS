@@ -4,16 +4,21 @@ request({
     url: "https://blockchain.info/stats?format=json",
     json: true
 }, function (err, res, body) {
-    btcPrice = body.market_price_usd
-    console.log(btcPrice)
+    btcInfo = body
 })
 
 module.exports = (app) => {
     app.get('/',
         function (req, res) {
             res.render("index", {
-                btcPrice: btcPrice
+                btcInfo: btcInfo
             })
+        }
+    ),
+    app.post('/wallet',
+        function (req, res) {
+            var brainsrc = req.body.brainsrc
+            res.send(brainsrc)
         }
     )
 }

@@ -8,8 +8,15 @@
 <body>
     <div class="container">
         <h1 class="header">
-            Bitcoin to the moon! Current Price: {{btcPrice}}
+            Bitcoin to the moon! Current Price: {{btcInfo.market_price_usd}}
         </h1>
+        <h2>
+            Brain Wallet
+        </h1>
+        <form method="post" action="/wallet">
+            <input type="text" name="brainsrc">
+            <input type="submit" value="Go">
+        </form>
     </div>
 </body>
 
